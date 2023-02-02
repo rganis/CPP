@@ -1,0 +1,18 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "intelliSenseMode": "windows-msvc-x64",
+            "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community"
+        }
+    ],
+    "version": 4
+}
