@@ -1,0 +1,1 @@
+enum DegreeType { SECURITY, NETWORK, SOFTWARE }; // enumerated data types for the degree programs
