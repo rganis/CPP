@@ -9,7 +9,7 @@ class Student
 public:
 const static in numDays = 3; //set number of days to complete courses here so we don't have to udpate it in multiple places
 
-protected: //members--protected so they can be accessed by derived classes--prefix m_ to indicate member variable
+private: //members--private so they can't be accessed by derived classes--prefix m_ to indicate member variable
     std::string m_studentID;
     std::string m_firstName;
     std::string m_lastName;
@@ -29,7 +29,7 @@ public:
     void setLastName(std::string lastName);
     void setEmailAddress(std::string emailAddress);
     void setAge(int age);
-    void setDaysToComplete(int daysToComplete[3]);
+    void setDaysToComplete(int daysToCompleteCourses[numDays]);
     void setDegreeProgram(std::string degreeProgram);
 
     std::string getStudentID(); //getters
@@ -42,8 +42,8 @@ public:
 
     virtual void print() = 0; // virtual print function
 
-    destructor //destructor
-        ~Student(){};
+destructor //destructor
+    ~Student(){};
 };
 
 #endif

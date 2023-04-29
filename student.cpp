@@ -2,7 +2,8 @@
 #include <iostream>
 
 //empty constructor
-Student::Student();//set all members to default values to avoid undefined behavior
+Student::Student()//set all members to default values to avoid undefined behavior
+{
     this->m_studentID = "";
     this->m_firstName = "";
     this->m_lastName = "";
@@ -11,15 +12,18 @@ Student::Student();//set all members to default values to avoid undefined behavi
     for (int i = 0; i < numDays; i++) this->m_daysToCompleteCourses[i] = 0;
     this->m_degreeProgram = DegreeProgram::UNDECIDED;
 
+}
 //full constructor
-Student::Student(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysToCompleteCourses[], DegreeProgram degreeProgram)
+Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram)
 {
     this->m_studentID = studentID;
     this->m_firstName = firstName;
     this->m_lastName = lastName;
     this->m_emailAddress = emailAddress;
     this->m_age = age;
-    for (int i = 0; i < numDays; i++) this->m_daysToCompleteCourses[i] = daysToCompleteCourses[i];
+    this->m_daysToCompleteCourses[0] = daysInCourse1;
+    this->m_daysToCompleteCourses[1] = daysInCourse2;
+    this->m_daysToCompleteCourses[2] = daysInCourse3;
     this->m_degreeProgram = degreeProgram;
 }
 
