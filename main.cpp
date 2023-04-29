@@ -10,7 +10,7 @@ private: //members
     int m_age;
     int m_daysToCompleteCourses[3];
     std::string m_degreeProgram;
-   
+
 public: //constructor
     Student(std::string m_studentID,
         std::string m_firstName,
