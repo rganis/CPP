@@ -38,8 +38,7 @@ public:
     int getDaysToComplete();
     std::string getDegreeProgram();
 
-    virtual void print() = 0; // virtual print function
-
+    virtual void PrintAll() = 0; // virtual print function to be overridden by derived classes
 
     ~Student(){};
 };

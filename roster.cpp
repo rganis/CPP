@@ -4,6 +4,29 @@
 #include <iostream>
 #include <string>
 
+void Roster::Parse()
+    std::cout << "Parsing data and adding students to roster..." << std::endl;
+    for (int i = 0; i < roster_size; i++) //loops through studentData array
+    {
+        std::string studentData = studentData[i]; //assigns each element of studentData array to studentData string
+        int rhs = studentData.find(","); //finds the first comma in the studentData string
+        std::string student_id = studentData.substr(0, rhs); //assigns the substring from the beginning of the studentData string to the first comma to student_id
+        int lhs = rhs + 1; //assigns the index of the character after the first comma to lhs
+        rhs = studentData.find(",", lhs); //finds the second comma in the studentData string
+        std::string first_name = studentData.substr(lhs, rhs - lhs); //assigns the substring from the character after the first comma to the second comma to first_name
+        lhs = rhs + 1; //assigns the index of the character after the second comma to lhs
+        rhs = studentData.find(",", lhs); //finds the third comma in the studentData string
+        std::string last_name = studentData.substr(lhs, rhs - lhs); //assigns the substring from the character after the second comma to the third comma to last_name
+        lhs = rhs + 1; //assigns the index of the character after the third comma to lhs
+        rhs = studentData.find(",", lhs); //finds the fourth comma in the studentData string
+        std::string email = studentData.substr(lhs, rhs - lhs); //assigns the substring from the character after the third comma to the fourth comma to email
+        lhs = rhs + 1; //assigns the index of the character after the fourth comma to lhs
+        rhs = studentData.find(",", lhs); //finds the fifth comma in the studentData string
+        int age = stoi(studentData.substr(lhs, rhs - lhs)); //assigns the substring from the character after the fourth comma to the fifth comma to age
+        lhs = rhs + 1; //assigns the index of the character after the fifth comma to lhs
+        rhs = studentData.find(",", lhs); //finds the sixth comma in the studentData string
+};
+
 // add student methods
 void Roster::AddStudent(std::string student_id,
     std::string first_name,

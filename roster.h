@@ -1,8 +1,9 @@
 #ifndef Roster_Header
 #define Roster_Header
 #include "student.h"
+#include "degree.h"
 
-class Roster :: public Student {
+class Roster : public Student {
 
 public:
     static const int roster_size = 5; // determine size of the student roster array here so we can update it in one place if code is modified
@@ -11,6 +12,8 @@ public:
 
     // constructor
     Roster();
+
+    void Parse(std::string studentData);
 
     // add and remove student methods
     void AddStudent(std::string student_id, std::string first_name, std::string last_name, std::string email, int age, int days_in_course1, int days_in_course2, int days_in_course3, DegreeProgram degree_program);
