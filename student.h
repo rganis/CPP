@@ -7,7 +7,7 @@
 class Student
 {
 public:
-const static in numDays = 3; //set number of days to complete courses here so we don't have to udpate it in multiple places
+const static int numDays = 3; //set number of days to complete courses here so we don't have to udpate it in multiple places
 
 private: //members--private so they can't be accessed by derived classes--prefix m_ to indicate member variable
     std::string m_studentID;
