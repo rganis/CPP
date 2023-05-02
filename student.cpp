@@ -1,5 +1,4 @@
 #include "student.h"
-#include <iostream>
 
 //empty constructor
 Student::Student()//set all members to default values to avoid undefined behavior

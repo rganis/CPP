@@ -1,8 +1,6 @@
 #ifndef Student_Header
 #define Student_Header
-#include <string>
-#include <iostream>
-#include degree.h
+#include "degree.h"
 
 class Student
 {

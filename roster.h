@@ -1,17 +1,15 @@
 #ifndef Roster_Header
 #define Roster_Header
-
 #include "student.h"
 
 class Roster : public Student {
 
-private:
+public:
     static const int roster_size = 5; // determine size of the student roster array here so we can update it in one place if code is modified
-    int lastIndex; // index of the last student added to the roster
+    int lastIndex = 0; // index of the last student added to the roster
     Student* classRosterArray[roster_size]; // roster array of pointers to student objects
 
-public:
-    // constructor and destructor
+    // constructor
     Roster();
 
     // add and remove student methods
@@ -23,6 +21,7 @@ public:
     void PrintAverageDaysInCourse(std::string student_id);
     void PrintInvalidEmails();
     void PrintByDegreeProgram(DegreeProgram degree_program);
+    
     ~Roster();//destructor
 };
 
