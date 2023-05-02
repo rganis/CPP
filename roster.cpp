@@ -1,6 +1,8 @@
 #include "roster.h"
 #include "student.h"
 #include "degree.h"
+#include <iostream>
+#include <string>
 
 // add student methods
 void Roster::AddStudent(std::string student_id,

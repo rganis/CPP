@@ -40,7 +40,7 @@ public:
 
     virtual void print() = 0; // virtual print function
 
-destructor //destructor
+
     ~Student(){};
 };
 
