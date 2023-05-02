@@ -2,7 +2,7 @@
 #define Roster_Header
 #include "student.h"
 
-class Roster : public Student {
+class Roster :: public Student {
 
 public:
     static const int roster_size = 5; // determine size of the student roster array here so we can update it in one place if code is modified
