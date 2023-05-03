@@ -13,17 +13,17 @@ public:
     // constructor
     Roster();
 
-    void Parse(std::string studentData);
+    void parse(std::string studentData);
 
     // add and remove student methods
-    void AddStudent(std::string student_id, std::string first_name, std::string last_name, std::string email, int age, int days_in_course1, int days_in_course2, int days_in_course3, DegreeProgram degree_program);
-    void RemoveStudent(std::string student_id);
+    void addStudent(std::string student_id, std::string first_name, std::string last_name, std::string email, int age, int days_in_course1, int days_in_course2, int days_in_course3, DegreeProgram degree_program);
+    void removeStudent(std::string student_id);
 
     // print methods
-    void PrintAll();
-    void PrintAverageDaysInCourse(std::string student_id);
-    void PrintInvalidEmails();
-    void PrintByDegreeProgram(DegreeProgram degree_program);
+    void printAll();
+    void printAverageDaysInCourse(std::string student_id);
+    void printInvalidEmails();
+    void printByDegreeProgram(DegreeProgram degree_program);
     
     ~Roster();//destructor
 };

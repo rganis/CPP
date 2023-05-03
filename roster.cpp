@@ -4,31 +4,44 @@
 #include <iostream>
 #include <string>
 
-void Roster::Parse()
+void Roster::parse(std::string studentData) //parses data and adds students to roster. there are 8 commas per student
     std::cout << "Parsing data and adding students to roster..." << std::endl;
     for (int i = 0; i < roster_size; i++) //loops through studentData array
     {
-        std::string studentData = studentData[i]; //assigns each element of studentData array to studentData string
-        int rhs = studentData.find(","); //finds the first comma in the studentData string
-        std::string student_id = studentData.substr(0, rhs); //assigns the substring from the beginning of the studentData string to the first comma to student_id
-        int lhs = rhs + 1; //assigns the index of the character after the first comma to lhs
-        rhs = studentData.find(",", lhs); //finds the second comma in the studentData string
-        std::string first_name = studentData.substr(lhs, rhs - lhs); //assigns the substring from the character after the first comma to the second comma to first_name
-        lhs = rhs + 1; //assigns the index of the character after the second comma to lhs
-        rhs = studentData.find(",", lhs); //finds the third comma in the studentData string
-        std::string last_name = studentData.substr(lhs, rhs - lhs); //assigns the substring from the character after the second comma to the third comma to last_name
-        lhs = rhs + 1; //assigns the index of the character after the third comma to lhs
-        rhs = studentData.find(",", lhs); //finds the fourth comma in the studentData string
-        std::string email = studentData.substr(lhs, rhs - lhs); //assigns the substring from the character after the third comma to the fourth comma to email
-        lhs = rhs + 1; //assigns the index of the character after the fourth comma to lhs
-        rhs = studentData.find(",", lhs); //finds the fifth comma in the studentData string
-        int age = stoi(studentData.substr(lhs, rhs - lhs)); //assigns the substring from the character after the fourth comma to the fifth comma to age
-        lhs = rhs + 1; //assigns the index of the character after the fifth comma to lhs
-        rhs = studentData.find(",", lhs); //finds the sixth comma in the studentData string
+        int rhs = studentData.find(","); //find first comma
+        std::string student_id = studentData.substr(0, rhs); 
+        
+        int lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find second comma
+        std::string first_name = studentData.substr(lhs, rhs - lhs); 
+
+        lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find third comma
+        std::string last_name = studentData.substr(lhs, rhs - lhs); 
+
+        lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find fourth comma
+        std::string email = studentData.substr(lhs, rhs - lhs);
+
+        lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find fifth comma
+        int age = stoi(studentData.substr(lhs, rhs - lhs)); 
+
+        lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find sixth comma
+        int days_in_course1 = stoi(studentData.substr(lhs, rhs - lhs)); 
+
+        lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find seventh comma
+        int days_in_course2 = stoi(studentData.substr(lhs, rhs - lhs)); 
+        
+        lhs = rhs + 1; 
+        rhs = studentData.find(",", lhs); //find eighth comma
+        int days_in_course3 = stoi(studentData.substr(lhs, rhs - lhs)); 
 };
 
 // add student methods
-void Roster::AddStudent(std::string student_id,
+void Roster::addStudent(std::string student_id,
     std::string first_name,
     std::string last_name,
     std::string email,
@@ -43,7 +56,7 @@ void Roster::AddStudent(std::string student_id,
     lastIndex++; //increments the index of the last student added to the roster
 };
 
-void RemoveStudent(std::string student_id) //removes student from roster by studentID
+void Roster::removeStudent(std::string student_id) //removes student from roster by studentID
 {
     bool studentFound = false;
     for (int i = 0; i < lastIndex; i++) //loop through the roster array to search for studentID
@@ -67,14 +80,14 @@ void RemoveStudent(std::string student_id) //removes student from roster by stud
 }
 
 // print methods
-void PrintAll()
+void Roster::printAll()
 {
     for (int i = 0; i < lastIndex; i++) //loops through roster array and calls print method for each student object
     {
         (classRosterArray[i])->print();
     }
 };
-void PrintAverageDaysInCourse(std::string student_id) //prints average number of days in course for a given studentID
+void Roster::printAverageDaysInCourse(std::string student_id) //prints average number of days in course for a given studentID
 {
     bool studentFound = false;
     for (int i = 0; i < lastIndex; i++)
@@ -91,7 +104,7 @@ void PrintAverageDaysInCourse(std::string student_id) //prints average number of
         std::cout << "Student " << student_id << " not found." << std::endl;
     }
 };
-void PrintInvalidEmails()//takes no arguments because it loops through all students in the roster array
+void Roster::printInvalidEmails()//takes no arguments because it loops through all students in the roster array
 {
     std::cout << "Invalid email addresses:" << std::endl;
     for (int i = 0; i < lastIndex; i++)
@@ -103,7 +116,7 @@ void PrintInvalidEmails()//takes no arguments because it loops through all stude
         }
     }
 };
-void PrintByDegreeProgram(DegreeProgram degree_program)
+void Roster::printByDegreeProgram(DegreeProgram degree_program)
 {
     std::cout << "Students in the " << degreeProgramStrings[degree_program] << " program:" << std::endl; //uses degreeProgramStrings array from degree.h to print degree program name
     for (int i = 0; i < lastIndex; i++)

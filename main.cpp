@@ -26,29 +26,29 @@ int main() {
     }
 
     cout << "Displaying all students:" << endl;
-    classRoster.PrintAll();
+    classRoster.printAll();
     cout << endl;
 
     cout << "Displaying students with invalid emails:" << endl;
-    classRoster.PrintInvalidEmails();
+    classRoster.printInvalidEmails();
     cout << endl;
 
     cout << "Displaying average days in course for each student:" << endl;
     for (int i = 0; i < 5; i++) {
-        classRoster.PrintAverageDaysInCourse(classRoster.classRosterArray[i]->getStudentID());
+        classRoster.printAverageDaysInCourse(classRoster.classRosterArray[i]->getStudentID());
     }
     cout << endl;
 
     cout << "Displaying students in the Software degree program:" << endl;
-    classRoster.PrintByDegreeProgram(SOFTWARE);
+    classRoster.printByDegreeProgram(SOFTWARE);
     cout << endl;
 
     cout << "Removing student A3:" << endl;
-    classRoster.RemoveStudent("A3");
+    classRoster.pemoveStudent("A3");
     cout << endl;
 
     cout << "Removing student A3 again:" << endl;
-    classRoster.RemoveStudent("A3");
+    classRoster.pemoveStudent("A3");
     cout << endl;
 
     classRoster.~Roster();
