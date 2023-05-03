@@ -23,9 +23,21 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->m_daysToCompleteCourses[0] = daysInCourse1;
     this->m_daysToCompleteCourses[1] = daysInCourse2;
     this->m_daysToCompleteCourses[2] = daysInCourse3;
-    this->m_degreeProgram = degreeProgram;
+    switch (degreeProgram) {
+        case "SECURITY":
+            this->degreeProgram = SECURITY;
+            break;
+        case "NETWORK":
+            this->degreeProgram = NETWORK;
+            break;
+        case "SOFTWARE":
+            this->degreeProgram = SOFTWARE;
+            break;
+        default:
+            this->degreeProgram = UNDECIDED;
+            break;
+    }
 }
-
 //print functions for each member
 
 void Student::printStudentID(){std::cout << getStudentID() << std::endl;}
