@@ -1,4 +1,6 @@
 #include "student.h"
+#include <iostream>
+#include <string>
 
 //empty constructor
 Student::Student()//set all members to default values to avoid undefined behavior
@@ -9,11 +11,11 @@ Student::Student()//set all members to default values to avoid undefined behavio
     this->m_emailAddress = "";
     this->m_age = 0;
     for (int i = 0; i < numDays; i++) this->m_daysToCompleteCourses[i] = 0;
-    this->m_degreeProgram = DegreeProgram::UNDECIDED;
+    this->m_degreeProgram = DegreeProgram::SECURITY;
 
 }
 //full constructor
-Student::Student(string studentID, string firstName, string lastName, string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram)
+Student::Student(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram)
 {
     this->m_studentID = studentID;
     this->m_firstName = firstName;
@@ -23,53 +25,64 @@ Student::Student(string studentID, string firstName, string lastName, string ema
     this->m_daysToCompleteCourses[0] = daysInCourse1;
     this->m_daysToCompleteCourses[1] = daysInCourse2;
     this->m_daysToCompleteCourses[2] = daysInCourse3;
-    switch (degreeProgram) {
-        case "SECURITY":
-            this->degreeProgram = SECURITY;
-            break;
-        case "NETWORK":
-            this->degreeProgram = NETWORK;
-            break;
-        case "SOFTWARE":
-            this->degreeProgram = SOFTWARE;
-            break;
-        default:
-            this->degreeProgram = UNDECIDED;
-            break;
-    }
+    this->m_degreeProgram = degreeProgram;
 }
+
 //print functions for each member
 
-void Student::printStudentID(){std::cout << getStudentID() << std::endl;}
-void Student::printFirstName(){std::cout << getFirstName() << std::endl;}
-void Student::printLastName(){std::cout << getLastName() << std::endl;}
-void Student::printEmailAddress(){std::cout << getEmailAddress() << std::endl;}
+void Student::printStudentID(){std::cout << Student::getStudentID() << std::endl;}
+void Student::printFirstName(){std::cout << Student::getFirstName() << std::endl;}
+void Student::printLastName(){std::cout << Student::getLastName() << std::endl;}
+void Student::printEmailAddress(){std::cout << Student::getEmailAddress() << std::endl;}
 void Student::printAge(){std::cout << getAge() << std::endl;}
-void Student::printDaysToComplete(){std::cout << getDaysToComplete() << std::endl;}
-void Student::printDegreeProgram(){std::cout << getDegreeProgram() << std::endl;}
+void Student::printDaysToComplete(){std::cout << Student::getDaysToComplete() << std::endl;}
+void Student::printDegreeProgram(){std::cout << Student::getDegreeProgram() << std::endl;}
 
 //setters/getters
 
-std::string getStudentID() {return m_studentID;}                                                    //get StudentID
-void setStudentID(std::string studentID) {m_studentID = studentID;}                                 //set studentID
+std::string Student::getStudentID() {return m_studentID;}                                                    //get StudentID
+void Student::setStudentID(std::string studentID) {m_studentID = studentID;}                                 //set studentID
 
-std::string getFirstName() {return m_firstName;}                                                    //get firstName
-void setFirstName(std::string firstName) {m_firstName = firstName;}                                 //set firstName
+std::string Student::getFirstName() {return m_firstName;}                                                    //get firstName
+void Student::setFirstName(std::string firstName) {m_firstName = firstName;}                                 //set firstName
 
-std::string getLastName() {return m_lastName;}                                                      //get lastName
-void setLastName(std::string lastName) {m_lastName = lastName;}                                     //set lastName
+std::string Student::getLastName() {return m_lastName;}                                                      //get lastName
+void Student::setLastName(std::string lastName) {m_lastName = lastName;}                                     //set lastName
 
-std::string getEmailAddress() {return m_emailAddress;}                                              //get EmailAddress
-void setEmailAddress(std::string emailAddress) {m_emailAddress = emailAddress;}                     //set emailAddress
+std::string Student::getEmailAddress() {return m_emailAddress;}                                              //get EmailAddress
+void Student::setEmailAddress(std::string emailAddress) {m_emailAddress = emailAddress;}                     //set emailAddress
 
-int getAge() {return m_age;}                                                                        //get age
-void setAge(int age) {m_age = age;}                                                                 //set age
+int Student::getAge() {return m_age;}                                                                        //get age
+void Student::setAge(int age) {m_age = age;}                                                                 //set age
 
-int getDaysToComplete() {return m_daysToCompleteCourses[3];}                                        //get daysToComplete array
-void setDaysToComplete(int daysToComplete[3]) {m_daysToCompleteCourses[3] = daysToComplete[3];}     //set daysToComplete array
+int Student::getDaysToComplete() {return m_daysToCompleteCourses[3];}                                        //get daysToComplete array
+void Student::setDaysToComplete(int daysToComplete[3]) {m_daysToCompleteCourses[3] = daysToComplete[3];}     //set daysToComplete array
     
-std::string getDegreeProgram() {return m_degreeProgram;}                                            //get degreeProgram
-void setDegreeProgram(std::string degreeProgram) {m_degreeProgram = degreeProgram;}                 //set degreeProgram;
+std::string Student::getDegreeProgram() //get degreeProgram
+{   
+    if (m_degreeProgram = DegreeProgram::SECURITY){
+        return "SECURITY";
+    } else if (m_degreeProgram = DegreeProgram::NETWORK){
+        return "NETWORK";
+    } else if (m_degreeProgram = DegreeProgram::SOFTWARE){
+        return "SOFTWARE";
+    } else {
+        std::cerr << "Invalid degree program specified: " << std::endl;
+    }
+}                                            
+
+void Student::setDegreeProgram(std::string degreeProgram)  //set degreeProgram;
+ {    
+    if (degreeProgram == "SECURITY") {
+        degreeProgram = DegreeProgram::SECURITY;} 
+    else if (degreeProgram == "NETWORK") {
+        degreeProgram = DegreeProgram::NETWORK;}
+    else if (degreeProgram == "SOFTWARE") {
+        degreeProgram = DegreeProgram::SOFTWARE;} 
+    else {
+        std::cerr << "Invalid degree program specified: " << std::endl;
+    }
+}                                       
 
 //destructor
-~Student() {}
+Student::~Student() {}

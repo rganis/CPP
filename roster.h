@@ -1,5 +1,6 @@
 #ifndef Roster_Header
 #define Roster_Header
+#include <string>
 #include "student.h"
 #include "degree.h"
 
