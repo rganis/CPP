@@ -4,13 +4,12 @@
 #include <iostream>
 #include <string>
 
-void Roster::parse(std::string studentData) //parses data and adds students to roster. there are 8 commas per student
+void Roster::parse(std::string studentData){ //parses data and adds students to roster. there are 8 commas per student
     std::cout << "Parsing data and adding students to roster..." << std::endl;
-    for (int i = 0; i < roster_size; i++) //loops through studentData array
-    {
+    for (int i = 0; i < roster_size; i++){  //loops through studentData array
         int rhs = studentData.find(","); //find first comma
         std::string student_id = studentData.substr(0, rhs); 
-        
+
         int lhs = rhs + 1; 
         rhs = studentData.find(",", lhs); //find second comma
         std::string first_name = studentData.substr(lhs, rhs - lhs); 
@@ -38,6 +37,7 @@ void Roster::parse(std::string studentData) //parses data and adds students to r
         lhs = rhs + 1; 
         rhs = studentData.find(",", lhs); //find eighth comma
         int days_in_course3 = stoi(studentData.substr(lhs, rhs - lhs)); 
+        }
 };
 
 // add student methods

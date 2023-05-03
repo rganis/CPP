@@ -22,7 +22,7 @@ int main() {
     Roster classRoster;
 
     for (int i = 0; i < 5; i++) {
-        classRoster.Parse(studentData[i]);
+        classRoster.parse(studentData[i]);
     }
 
     cout << "Displaying all students:" << endl;
@@ -44,11 +44,11 @@ int main() {
     cout << endl;
 
     cout << "Removing student A3:" << endl;
-    classRoster.pemoveStudent("A3");
+    classRoster.removeStudent("A3");
     cout << endl;
 
     cout << "Removing student A3 again:" << endl;
-    classRoster.pemoveStudent("A3");
+    classRoster.removeStudent("A3");
     cout << endl;
 
     classRoster.~Roster();

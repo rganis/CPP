@@ -1,9 +1,9 @@
 #ifndef Student_Header
 #define Student_Header
+#include <string>
 #include "degree.h"
 
-class Student
-{
+class Student{
 public:
 const static int numDays = 3; //set number of days to complete courses here so we don't have to udpate it in multiple places
 
@@ -20,8 +20,9 @@ public:
 
 //constructors
     Student();//default constructor
-    Student(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysToCompleteCourses[], DegreeProgram degreeProgram); //full constructor
-
+    Student(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram); //full constructor
+    ~Student();//destructor
+    
     void setStudentID(std::string studentID); //setters
     void setFirstName(std::string firstName);
     void setLastName(std::string lastName);
@@ -37,10 +38,16 @@ public:
     int getAge();
     int getDaysToComplete();
     std::string getDegreeProgram();
+    
+    void printStudentID(); //print functions for each member
+    void printFirstName();
+    void printLastName();
+    void printEmailAddress();
+    void printAge();
+    void printDaysToComplete();
+    void printDegreeProgram();
 
-    virtual void PrintAll() = 0; // virtual print function to be overridden by derived classes
-
-    ~Student(){};
+    virtual void printAll() = 0; // virtual print function to be overridden by derived classes
 };
 
 #endif
