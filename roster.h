@@ -21,7 +21,7 @@ public:
     void removeStudent(std::string student_id);
 
     // print methods
-    void const printAll() override;
+    void printAll();
     void printAverageDaysInCourse(std::string student_id);
     void printInvalidEmails();
     void printByDegreeProgram(DegreeProgram degree_program);

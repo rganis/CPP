@@ -46,8 +46,7 @@ public:
     void printAge();
     void printDaysToComplete();
     void printDegreeProgram();
-
-    virtual void printAll(); // virtual print function to be overridden by derived classes
+    void print();
 };
 
 #endif

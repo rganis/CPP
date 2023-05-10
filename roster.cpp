@@ -52,8 +52,8 @@ void Roster::addStudent(std::string student_id,
     DegreeProgram degree_program)
 {
     int days_in_course[Student::numDays] = { days_in_course1, days_in_course2, days_in_course3 }; //adds 3 days_in_course values to an array
-    classRosterArray[lastIndex] = new Student(student_id, first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //creates a new student object and adds it to the roster array
-    lastIndex++; //increments the index of the last student added to the roster
+	Student* newStudent = new Student(student_id, first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //creates a new student object and adds its pointer the roster array
+    classRosterArray[lastIndex++] = newStudent; //increments the index of the last student added to the roster
 };
 
 void Roster::removeStudent(std::string student_id) //removes student from roster by studentID
@@ -84,7 +84,7 @@ void Roster::printAll()
 {
     for (int i = 0; i < lastIndex; i++) //loops through roster array and calls print method for each student object
     {
-        (classRosterArray[i])->printAll();
+        (classRosterArray[i])->print();
     }
 };
 void Roster::printAverageDaysInCourse(std::string student_id) //prints average number of days in course for a given studentID
@@ -95,8 +95,10 @@ void Roster::printAverageDaysInCourse(std::string student_id) //prints average n
         if (classRosterArray[i]->getStudentID() == student_id)
         {
             studentFound = true;
-            int days = classRosterArray[i]->getDaysToComplete();
-            std::cout << "Average number of days to complete courses for student " << student_id << " is " << (days[0] + days[1] + days[2]) / 3 << std::endl;
+            int* days = classRosterArray[i]->getDaysToComplete();
+            int sum = days[0] + days[1] + days[2];
+            double avg = static_cast<double>(sum) / Student::numDays; //cast average as double to get decimal value
+            std::cout << "Average number of days to complete courses for student " << student_id << " is " << avg << std::endl;
         }
     }
     if (!studentFound)
