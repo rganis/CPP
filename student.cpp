@@ -37,6 +37,15 @@ void Student::printEmailAddress(){std::cout << Student::getEmailAddress() << std
 void Student::printAge(){std::cout << getAge() << std::endl;}
 void Student::printDaysToComplete(){std::cout << Student::getDaysToComplete() << std::endl;}
 void Student::printDegreeProgram(){std::cout << Student::getDegreeProgram() << std::endl;}
+void Student::print()
+{
+    std::cout << Student::getStudentID() << "\t";
+    std::cout << "First Name: " << Student::getFirstName() << "\t";
+    std::cout << "Last Name: " << Student::getLastName() << "\t";
+    std::cout << "Age: " << Student::getAge() << "\t";
+    std::cout << "daysInCourse: {" << Student::getDaysToComplete() << "} \t";
+    std::cout << "Degree Program: " << Student::getDegreeProgram() << std::endl;
+};
 
 //setters/getters
 
