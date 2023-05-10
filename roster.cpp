@@ -4,6 +4,13 @@
 #include <iostream>
 #include <string>
 
+Roster::Roster() {
+    lastIndex = -1;
+    for (int i = 0; i < 5; i++) {
+        classRosterArray[i] = nullptr;
+    }
+}
+
 void Roster::parse(std::string studentData){ //parses data and adds students to roster. there are 8 commas per student
     std::cout << "Parsing data and adding students to roster..." << std::endl;
     for (int i = 0; i < roster_size; i++){  //loops through studentData array
@@ -123,9 +130,18 @@ void Roster::printByDegreeProgram(DegreeProgram degree_Program)
     std::cout << "Students in the " << degreeProgramStrings[degree_Program] << " program:" << std::endl; //uses degreeProgramStrings array from degree.h to print degree program name
     for (int i = 0; i < lastIndex; i++)
     {
-        if (classRosterArray[i]->getDegreeProgram() == degree_Program)
+        if (classRosterArray[i]->getDegreeProgram() == degreeProgramStrings[degree_Program])
         {
             classRosterArray[i]->print();
         }
     }
+};
+
+Roster::~Roster() //destructor
+{
+    for (int i = 0; i < lastIndex; i++)
+    {
+        delete classRosterArray[i]; //deletes each student object in the roster array
+    }
+    delete this; //deletes roster object
 };

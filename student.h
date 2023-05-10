@@ -36,7 +36,7 @@ public:
     std::string getLastName();
     std::string getEmailAddress();
     int getAge();
-    int getDaysToComplete();
+    int* getDaysToComplete();
     std::string getDegreeProgram();
     
     void printStudentID(); //print functions for each member

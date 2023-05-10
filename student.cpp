@@ -64,7 +64,7 @@ void Student::setEmailAddress(std::string emailAddress) {m_emailAddress = emailA
 int Student::getAge() {return m_age;}                                                                        //get age
 void Student::setAge(int age) {m_age = age;}                                                                 //set age
 
-int Student::getDaysToComplete() {return m_daysToCompleteCourses[3];}                                        //get daysToComplete array
+int* Student::getDaysToComplete() {return m_daysToCompleteCourses;}                                        //get daysToComplete array
 void Student::setDaysToComplete(int daysToComplete[3]) {m_daysToCompleteCourses[3] = daysToComplete[3];}     //set daysToComplete array
     
 std::string Student::getDegreeProgram() //get degreeProgram
