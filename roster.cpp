@@ -28,8 +28,7 @@ void Roster::addStudent(std::string student_id,
 };
 
 void Roster::parse(std::string studentData){ //parses data and adds students to roster. there are 8 commas per student
-    std::cout << "Parsing data and adding students to roster..." << std::endl;
-    int strlength = studentData[0].length();
+    int strlength = studentData.length();
     for (int i = 0; i < roster_size; i++){  //loops through studentData array
         int rhs = studentData.find(","); //find first comma
         std::string student_id = studentData.substr(0, rhs); 
@@ -66,7 +65,7 @@ void Roster::parse(std::string studentData){ //parses data and adds students to 
         rhs = strlength; //find end of string
         DegreeProgram degree_program = static_cast<DegreeProgram>(stoi(studentData.substr(lhs, rhs - lhs))); //converts string to enum type
 
-        addStudent(first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //add student to roster
+        addStudent(student_id, first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //add student to roster
         }
 };
 

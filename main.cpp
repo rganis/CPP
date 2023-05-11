@@ -18,12 +18,16 @@ int main() {
     cout << "C++" << endl;
     cout << "Student ID: 001177106" << endl;
     cout << "Richard Ganis" << endl << endl;
-
+    cout << "Parsing data and adding students to roster..." << std::endl;
     Roster classRoster;
 
+    system("pause");
+    
     for (int i = 0; i < 5; i++) {
         classRoster.parse(studentData[i]);
     }
+
+    system("pause");
 
     cout << "Displaying all students:" << endl;
     classRoster.printAll();
@@ -50,6 +54,8 @@ int main() {
     cout << "Removing student A3 again:" << endl;
     classRoster.removeStudent("A3");
     cout << endl;
+
+    system("pause");
 
     classRoster.~Roster();
 
