@@ -11,8 +11,25 @@ Roster::Roster() {
     }
 }
 
+// add student methods
+void Roster::addStudent(std::string student_id,
+    std::string first_name,
+    std::string last_name,
+    std::string email,
+    int age,
+    int days_in_course1,
+    int days_in_course2,
+    int days_in_course3,
+    DegreeProgram degree_program)
+{
+    int days_in_course[Student::numDays] = { days_in_course1, days_in_course2, days_in_course3 }; //adds 3 days_in_course values to an array
+	Student* newStudent = new Student(student_id, first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //creates a new student object and adds its pointer the roster array
+    classRosterArray[lastIndex++] = newStudent; //increments the index of the last student added to the roster
+};
+
 void Roster::parse(std::string studentData){ //parses data and adds students to roster. there are 8 commas per student
     std::cout << "Parsing data and adding students to roster..." << std::endl;
+    int strlength = studentData[0].length();
     for (int i = 0; i < roster_size; i++){  //loops through studentData array
         int rhs = studentData.find(","); //find first comma
         std::string student_id = studentData.substr(0, rhs); 
@@ -44,24 +61,16 @@ void Roster::parse(std::string studentData){ //parses data and adds students to 
         lhs = rhs + 1; 
         rhs = studentData.find(",", lhs); //find eighth comma
         int days_in_course3 = stoi(studentData.substr(lhs, rhs - lhs)); 
+
+        lhs = rhs + 1;
+        rhs = strlength; //find end of string
+        DegreeProgram degree_program = static_cast<DegreeProgram>(stoi(studentData.substr(lhs, rhs - lhs))); //converts string to enum type
+
+        addStudent(first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //add student to roster
         }
 };
 
-// add student methods
-void Roster::addStudent(std::string student_id,
-    std::string first_name,
-    std::string last_name,
-    std::string email,
-    int age,
-    int days_in_course1,
-    int days_in_course2,
-    int days_in_course3,
-    DegreeProgram degree_program)
-{
-    int days_in_course[Student::numDays] = { days_in_course1, days_in_course2, days_in_course3 }; //adds 3 days_in_course values to an array
-	Student* newStudent = new Student(student_id, first_name, last_name, email, age, days_in_course1, days_in_course2, days_in_course3, degree_program); //creates a new student object and adds its pointer the roster array
-    classRosterArray[lastIndex++] = newStudent; //increments the index of the last student added to the roster
-};
+
 
 void Roster::removeStudent(std::string student_id) //removes student from roster by studentID
 {
