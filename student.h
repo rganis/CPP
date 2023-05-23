@@ -1,5 +1,5 @@
-#ifndef Student_Header
-#define Student_Header
+#ifndef STUDENT_H
+#define STUDENT_H
 #include <string>
 #include "degree.h"
 
@@ -28,7 +28,9 @@ public:
     void setLastName(std::string lastName);
     void setEmailAddress(std::string emailAddress);
     void setAge(int age);
-    void setDaysToComplete(int daysToCompleteCourses[numDays]);
+    void setDaysToComplete1(int daysInCourse1);
+    void setDaysToComplete2(int daysInCourse2);
+    void setDaysToComplete3(int daysInCourse3);
     void setDegreeProgram(std::string degreeProgram);
 
     std::string getStudentID(); //getters
@@ -36,8 +38,10 @@ public:
     std::string getLastName();
     std::string getEmailAddress();
     int getAge();
-    int* getDaysToComplete();
-    std::string getDegreeProgram();
+    int getDaysToComplete1();
+    int getDaysToComplete2();
+    int getDaysToComplete3();
+    DegreeProgram getDegreeProgram();
     
     void printStudentID(); //print functions for each member
     void printFirstName();
@@ -48,5 +52,4 @@ public:
     void printDegreeProgram();
     void print();
 };
-
 #endif

@@ -8,7 +8,7 @@ class Roster : public Student {
 
 public:
     static const int roster_size = 5; // determine size of the student roster array here so we can update it in one place if code is modified
-    int lastIndex = 0; // index of the last student added to the roster
+    int lastIndex; // index of the last student added to the roster
     Student* classRosterArray[roster_size]; // roster array of pointers to student objects
 
     // constructor
@@ -24,7 +24,7 @@ public:
     void printAll();
     void printAverageDaysInCourse(std::string student_id);
     void printInvalidEmails();
-    void printByDegreeProgram(DegreeProgram degree_program);
+    void printByDegreeProgram(DegreeProgram degree);
     
     ~Roster();//destructor
 };

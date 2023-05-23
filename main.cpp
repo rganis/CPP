@@ -20,14 +20,10 @@ int main() {
     cout << "Richard Ganis" << endl << endl;
     cout << "Parsing data and adding students to roster..." << std::endl;
     Roster classRoster;
-
-    system("pause");
     
     for (int i = 0; i < 5; i++) {
         classRoster.parse(studentData[i]);
     }
-
-    system("pause");
 
     cout << "Displaying all students:" << endl;
     classRoster.printAll();
